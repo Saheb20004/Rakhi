@@ -277,6 +277,14 @@
         <div class="shadow"></div>
     </div>
 
+    <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    
+
+
     <script>
         const canvas = document.getElementById('mouseTrackCanvas');
         const ctx = canvas.getContext('2d');
@@ -385,6 +393,13 @@
 
         // Handle canvas resize
         window.addEventListener('resize', resizeCanvas);
+        // ✅ Add music click-to-play handler here
+       document.body.addEventListener('click', function () {
+       const music = document.getElementById('bgMusic');
+       if (music.paused) {
+        music.play().catch(err => console.log("Autoplay blocked:", err));
+       }
+   });
     </script>
 </body>
 </html>
